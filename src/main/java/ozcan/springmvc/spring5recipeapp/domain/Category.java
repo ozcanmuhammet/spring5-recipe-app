@@ -1,9 +1,14 @@
 package ozcan.springmvc.spring5recipeapp.domain;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Data
+@EqualsAndHashCode(exclude = {"recipes"}) // if there is bidirectional relationship, there will be loop, this prevents loop.
 public class Category {
 
     @Id
@@ -15,27 +20,4 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipes() {
-        return recipes;
-    }
-
-    public void setRecipes(Set<Recipe> recipes) {
-        this.recipes = recipes;
-    }
 }

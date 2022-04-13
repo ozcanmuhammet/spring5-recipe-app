@@ -1,5 +1,6 @@
 package ozcan.springmvc.spring5recipeapp.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import ozcan.springmvc.spring5recipeapp.service.RecipeService;
 import java.util.Optional;
 
 @Controller
+@Slf4j
 public class IndexController {
 
     private RecipeService recipeService;
